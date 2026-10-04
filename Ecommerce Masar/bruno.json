@@ -1,0 +1,13 @@
+{
+  "name": "Ecommerce Masar",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git",
+    "assets"
+  ],
+  "size": 0.014359474182128906,
+  "filesCount": 58,
+  "version": "1",
+  "collectionVersion": "1"
+}

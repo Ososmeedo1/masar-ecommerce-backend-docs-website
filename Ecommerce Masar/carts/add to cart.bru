@@ -1,0 +1,106 @@
+meta {
+  name: add to cart
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{url}}/carts/add/6ac11435957e9db5eb78a2b1
+  body: json
+  auth: inherit
+}
+
+headers {
+  token: osama{{token}}
+}
+
+body:json {
+  {
+    "quantity": 1
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+example {
+  name: Adding product to cart
+  description: '''
+    This endpoint adds a product to the cart.
+      
+    It checks the product and user
+    It adds the item to the cart
+    It may update quantity if already exists
+    Simple meaning: this API is used when a user adds an item to the cart.
+  '''
+  
+  request: {
+    url: {{url}}/carts/add/6ac11435957e9db5eb78a2b1
+    method: POST
+    mode: json
+    headers: {
+      token: {{token}}
+    }
+  
+    body:json: {
+      {
+        "quantity": 1
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      x-powered-by: Express
+      access-control-allow-origin: *
+      content-type: application/json; charset=utf-8
+      content-length: 565
+      etag: W/"235-13tsHYB7PnnH7mokitkPziep544"
+      date: Sat, 03 Oct 2026 19:59:12 GMT
+      connection: keep-alive
+      keep-alive: timeout=5
+    }
+  
+    status: {
+      code: 201
+      text: Created
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "message": "Product has been added to cart",
+          "data": {
+            "userId": {
+              "_id": "6a847ebadcab826cf492edee",
+              "username": "username",
+              "email": "username@gmail.com",
+              "userType": "Admin",
+              "age": 30,
+              "gender": "male",
+              "phone": "01000000000",
+              "isEmailVerified": false,
+              "isMarkedAsDeleted": false,
+              "createdAt": "2026-08-18T15:48:10.106Z",
+              "updatedAt": "2026-10-03T19:16:31.983Z"
+            },
+            "products": [
+              {
+                "productId": "6ac11435957e9db5eb78a2b1",
+                "quantity": 1,
+                "price": 899,
+                "_id": "6ac15e9033488f956288a2a2"
+              }
+            ],
+            "_id": "6ac15e9033488f956288a2a1",
+            "createdAt": "2026-10-03T19:59:12.197Z",
+            "updatedAt": "2026-10-03T19:59:12.197Z"
+          }
+        }
+      '''
+    }
+  }
+}

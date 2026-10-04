@@ -1,0 +1,79 @@
+meta {
+  name: update address
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{url}}/addresses/update/6ac15e2433488f956288a28e
+  body: json
+  auth: inherit
+}
+
+headers {
+  token: osama{{token}}
+}
+
+body:json {
+  {
+    "setAsDefault": false
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+example {
+  name: Updating address
+  description: '''
+    This endpoint updates an existing address.
+      
+    It modifies the selected address details
+    It saves the changes
+    Simple meaning: this API is used when a user edits an address.
+  '''
+  
+  request: {
+    url: {{url}}/addresses/update/6ac15e2433488f956288a28e
+    method: PUT
+    mode: json
+    headers: {
+      token: {{token}}
+    }
+  
+    body:json: {
+      {
+        "setAsDefault": false
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      x-powered-by: Express
+      access-control-allow-origin: *
+      content-type: application/json; charset=utf-8
+      content-length: 46
+      etag: W/"2e-KKcBJdKvLmybkOltZMdM1JzWa20"
+      date: Sat, 03 Oct 2026 19:57:59 GMT
+      connection: keep-alive
+      keep-alive: timeout=5
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "message": "Address was updated successfully"
+        }
+      '''
+    }
+  }
+}

@@ -1,0 +1,81 @@
+meta {
+  name: get cart
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{url}}/carts
+  body: none
+  auth: inherit
+}
+
+headers {
+  token: osama{{token}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+example {
+  name: Get cart
+  description: '''
+    This endpoint returns the current cart.
+      
+    It lists the products in the cart
+    It may show total price or quantities
+    Simple meaning: this API is used to view the user’s shopping cart.
+  '''
+  
+  request: {
+    url: {{url}}/carts
+    method: GET
+    mode: none
+    headers: {
+      token: {{token}}
+    }
+  }
+  
+  response: {
+    headers: {
+      x-powered-by: Express
+      access-control-allow-origin: *
+      content-type: application/json; charset=utf-8
+      content-length: 286
+      etag: W/"11e-GcqNEy8fN/N2/g/VmKg5gVxVxvs"
+      date: Sat, 03 Oct 2026 20:00:49 GMT
+      connection: keep-alive
+      keep-alive: timeout=5
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "message": "done",
+          "data": {
+            "_id": "6ac15ec033488f956288a2af",
+            "userId": "6a847ebadcab826cf492edee",
+            "products": [
+              {
+                "productId": "6ac11435957e9db5eb78a2b1",
+                "quantity": 4,
+                "price": 899,
+                "_id": "6ac15ec033488f956288a2b0"
+              }
+            ],
+            "createdAt": "2026-10-03T20:00:00.402Z",
+            "updatedAt": "2026-10-03T20:00:28.091Z"
+          }
+        }
+      '''
+    }
+  }
+}

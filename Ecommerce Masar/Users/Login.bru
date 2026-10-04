@@ -1,0 +1,75 @@
+meta {
+  name: Login
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{url}}/users/login
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "email": "username@gmail.com",
+    "password": "Example123#"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+example {
+  name: Login response
+  description: '''
+    This endpoint logs a user in.
+    
+    It checks the email and password
+    If correct, it returns a token
+    This token is used in protected routes
+    Simple meaning: this API is used when a user signs in.
+  '''
+  
+  request: {
+    url: {{url}}/users/login
+    method: POST
+    mode: json
+    body:json: {
+      {
+        "email": "username@gmail.com",
+        "password": "Example123#"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      x-powered-by: Express
+      access-control-allow-origin: *
+      content-type: application/json; charset=utf-8
+      content-length: 194
+      etag: W/"c2-sGeAnWkOngke/IeGHt98r6xaepw"
+      date: Sat, 03 Oct 2026 19:04:29 GMT
+      connection: keep-alive
+      keep-alive: timeout=5
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "message": "Logged in successfully",
+          "data": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhYzE0ZTBlYzliODRmYTIyNzEzNTcwOCIsImlhdCI6MTc5MTA1NDI2OX0.SjaEBItgJ6FCouoNU9R__vpKEtNUZMd8bQgMlzT-L5k"
+        }
+      '''
+    }
+  }
+}

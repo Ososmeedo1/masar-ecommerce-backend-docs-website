@@ -1,0 +1,94 @@
+meta {
+  name: add review
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{url}}/reviews/add
+  body: json
+  auth: inherit
+}
+
+headers {
+  token: osama{{token}}
+}
+
+body:json {
+  {
+    "productId": "6ac11435957e9db5eb78a2b1",
+    "reviewRating": 2,
+    "reviewBody": "test"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+example {
+  name: Adding review for the order
+  description: '''
+    This endpoint adds a review for a product.
+      
+    It checks if the user already reviewed the product
+    It checks if the user bought the product
+    It saves the review
+    Simple meaning: this API is used when a customer leaves feedback about a product.
+  '''
+  
+  request: {
+    url: {{url}}/reviews/add
+    method: POST
+    mode: json
+    headers: {
+      token: {{token}}
+    }
+  
+    body:json: {
+      {
+        "productId": "6ac11435957e9db5eb78a2b1",
+        "reviewRating": 2,
+        "reviewBody": "test"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      x-powered-by: Express
+      access-control-allow-origin: *
+      content-type: application/json; charset=utf-8
+      content-length: 296
+      etag: W/"128-yJeXpSdTOOcGzGHDxIgDfHWS+NQ"
+      date: Sat, 03 Oct 2026 20:04:36 GMT
+      connection: keep-alive
+      keep-alive: timeout=5
+    }
+  
+    status: {
+      code: 201
+      text: Created
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "message": "Review added successfully",
+          "data": {
+            "userId": "6a847ebadcab826cf492edee",
+            "productId": "6ac11435957e9db5eb78a2b1",
+            "reviewRating": 2,
+            "reviewBody": "test",
+            "reviewStatus": "pending",
+            "_id": "6ac15fd433488f956288a309",
+            "createdAt": "2026-10-03T20:04:36.359Z",
+            "updatedAt": "2026-10-03T20:04:36.359Z"
+          }
+        }
+      '''
+    }
+  }
+}

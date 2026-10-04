@@ -1,0 +1,91 @@
+meta {
+  name: Get order details
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{url}}/orders/6ac15f8633488f956288a2ef
+  body: none
+  auth: inherit
+}
+
+headers {
+  token: osama{{token}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+example {
+  name: Get order's details
+  description: '''
+    This endpoint gets the details of one order.
+      
+    It finds the specific order
+    It returns complete order information
+    Simple meaning: this API is used to view a single order’s full details.
+  '''
+  
+  request: {
+    url: {{url}}/orders/6ac15f8633488f956288a2ef
+    method: GET
+    mode: none
+    headers: {
+      token: {{token}}
+    }
+  }
+  
+  response: {
+    headers: {
+      x-powered-by: Express
+      access-control-allow-origin: *
+      content-type: application/json; charset=utf-8
+      content-length: 500
+      etag: W/"1f4-Ykco3HTCVbiQGVdjJmBcE0bMBuY"
+      date: Sat, 03 Oct 2026 20:03:55 GMT
+      connection: keep-alive
+      keep-alive: timeout=5
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "message": "done",
+          "data": {
+            "_id": "6ac15f8633488f956288a2ef",
+            "userId": "6a847ebadcab826cf492edee",
+            "products": [
+              {
+                "productId": "6ac11435957e9db5eb78a2b1",
+                "quantity": 1,
+                "price": 899,
+                "_id": "6ac15f8233488f956288a2e6"
+              }
+            ],
+            "fromCart": true,
+            "address": "obour",
+            "contactNumber": "01060603600",
+            "subTotal": 899,
+            "shippingFee": 30,
+            "VAT": 30,
+            "total": 959,
+            "estimatedDeliveryDate": "2026-10-09T21:00:00.000Z",
+            "paymentMethod": "cash",
+            "orderStatus": "placed",
+            "createdAt": "2026-10-03T20:03:18.433Z",
+            "updatedAt": "2026-10-03T20:03:18.433Z"
+          }
+        }
+      '''
+    }
+  }
+}

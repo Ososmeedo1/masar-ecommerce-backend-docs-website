@@ -1,0 +1,164 @@
+meta {
+  name: get product by id
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{url}}/products/6ac11435957e9db5eb78a2b1
+  body: none
+  auth: inherit
+}
+
+headers {
+  token: osama{{token}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+example {
+  name: Get Prodcut By Id
+  description: '''
+    This endpoint gets one product by its details.
+      
+    You can search by product ID or other unique values
+    It returns the product data if found
+    If the product does not exist, it returns an error
+    Simple meaning: this API is used to view one product in detail.
+  '''
+  
+  request: {
+    url: {{url}}/products/6ac11435957e9db5eb78a2b1
+    method: GET
+    mode: none
+    headers: {
+      token: {{token}}
+    }
+  }
+  
+  response: {
+    headers: {
+      x-powered-by: Express
+      access-control-allow-origin: *
+      content-type: application/json; charset=utf-8
+      content-length: 3062
+      etag: W/"bf6-kCYVH92vjBKNrhB+XKNvYzSe/Bg"
+      date: Sat, 03 Oct 2026 20:38:30 GMT
+      connection: keep-alive
+      keep-alive: timeout=5
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "message": "done",
+          "data": {
+            "appliedDiscount": {
+              "amount": 0,
+              "type": "Percentage"
+            },
+            "Images": {
+              "URLs": [
+                {
+                  "fileUrl": "https://ik.imagekit.io/ososmeedo/Uploads/Categories/WyZG/SubCategories/bW68/Brands/ih1f/Products/xtyp/2026-10-03__9X7F1_aUp7w6CQZ.jpg",
+                  "filePath": "/Uploads/Categories/WyZG/SubCategories/bW68/Brands/ih1f/Products/xtyp/2026-10-03__9X7F1_aUp7w6CQZ.jpg",
+                  "_id": "6ac11435957e9db5eb78a2b2"
+                },
+                {
+                  "fileUrl": "https://ik.imagekit.io/ososmeedo/Uploads/Categories/WyZG/SubCategories/bW68/Brands/ih1f/Products/xtyp/2026-10-03__nCpa2_FCf_dPXqv.jpg",
+                  "filePath": "/Uploads/Categories/WyZG/SubCategories/bW68/Brands/ih1f/Products/xtyp/2026-10-03__nCpa2_FCf_dPXqv.jpg",
+                  "_id": "6ac11435957e9db5eb78a2b3"
+                },
+                {
+                  "fileUrl": "https://ik.imagekit.io/ososmeedo/Uploads/Categories/WyZG/SubCategories/bW68/Brands/ih1f/Products/xtyp/2026-10-03__-8ar3_Lx6l2DHU7.jpg",
+                  "filePath": "/Uploads/Categories/WyZG/SubCategories/bW68/Brands/ih1f/Products/xtyp/2026-10-03__-8ar3_Lx6l2DHU7.jpg",
+                  "_id": "6ac11435957e9db5eb78a2b4"
+                }
+              ],
+              "customId": "xtyp"
+            },
+            "_id": "6ac11435957e9db5eb78a2b1",
+            "title": "Hatif Nokhba 5G",
+            "overview": "Flagship 5G smartphone with a stunning AMOLED display, pro-grade camera, full Arabic keyboard and interface support, and all-day battery.",
+            "specs": {
+              "display": "6.7 inch AMOLED 120Hz",
+              "processor": "Octa-core 3.0GHz",
+              "ram": "12GB",
+              "storage": "256GB",
+              "camera": "108MP + 12MP + 8MP",
+              "battery": "5000mAh",
+              "os": "Android 15",
+              "languages": [
+                "Arabic",
+                "English"
+              ],
+              "colors": [
+                "Midnight Blue",
+                "Titanium Silver"
+              ]
+            },
+            "price": 899,
+            "stock": 50,
+            "rating": 0,
+            "categoryId": {
+              "Image": {
+                "fileUrl": "https://ik.imagekit.io/ososmeedo/Uploads/Categories/WyZG/2026-08-18__vI_M__electronics_4Opr5m-DiQ.png",
+                "filePath": "/Uploads/Categories/WyZG/2026-08-18__vI_M__electronics_4Opr5m-DiQ.png"
+              },
+              "_id": "6a847f29dcab826cf492edfa",
+              "name": "Electronics",
+              "addedBy": "6a847ebadcab826cf492edee",
+              "customId": "WyZG",
+              "slug": "electronics",
+              "createdAt": "2026-08-18T15:50:01.170Z",
+              "updatedAt": "2026-08-18T15:50:01.170Z",
+              "__v": 0
+            },
+            "subCategoryId": {
+              "Image": {
+                "fileUrl": "https://ik.imagekit.io/ososmeedo/Uploads/Categories/WyZG/SubCategories/bW68/2026-08-18__s5BX__mobile_phone_0XB9rKG4IN.png",
+                "filePath": "/Uploads/Categories/WyZG/SubCategories/bW68/2026-08-18__s5BX__mobile_phone_0XB9rKG4IN.png"
+              },
+              "_id": "6a8482919daf950d1127540e",
+              "name": "Mobiles",
+              "slug": "mobiles",
+              "customId": "bW68",
+              "categoryId": "6a847f29dcab826cf492edfa",
+              "createdAt": "2026-08-18T16:04:33.625Z",
+              "updatedAt": "2026-08-18T16:04:33.625Z",
+              "__v": 0
+            },
+            "brandId": {
+              "logo": {
+                "fileUrl": "https://ik.imagekit.io/ososmeedo/Uploads/Categories/WyZG/SubCategories/bW68/Brands/ih1f/2026-10-01__2kHR__logo_Gmrkp8g8k.jpg",
+                "filePath": "/Uploads/Categories/WyZG/SubCategories/bW68/Brands/ih1f/2026-10-01__2kHR__logo_Gmrkp8g8k.jpg"
+              },
+              "_id": "6abeb58ba2477cf37e7b4673",
+              "name": "Nokhba Tech",
+              "slug": "nokhba-tech",
+              "customId": "ih1f",
+              "categoryId": "6a847f29dcab826cf492edfa",
+              "subCategoryId": "6a8482919daf950d1127540e",
+              "createdAt": "2026-10-01T19:33:31.473Z",
+              "updatedAt": "2026-10-01T19:33:31.473Z",
+              "__v": 0
+            },
+            "slug": "hatif_nokhba_5g",
+            "appliedPrice": 899,
+            "createdAt": "2026-10-03T14:41:57.656Z",
+            "updatedAt": "2026-10-03T20:04:13.560Z"
+          }
+        }
+      '''
+    }
+  }
+}

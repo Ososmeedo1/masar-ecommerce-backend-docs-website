@@ -1,0 +1,91 @@
+meta {
+  name: get brand
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{url}}/brands/specific?id=6abeb58ba2477cf37e7b4673
+  body: none
+  auth: inherit
+}
+
+params:query {
+  id: 6abeb58ba2477cf37e7b4673
+}
+
+headers {
+  "token ": osama{{token}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+example {
+  name: Get specific brand
+  description: '''
+    This endpoint gets one specific brand from the database.
+      
+    You can search by brand id, name, or slug
+    It returns the matching brand if it exists
+    If the brand is not found, it returns an error
+    In simple words: this API is used when you want to view one brand only, such as a single brand by its name or unique ID.
+  '''
+  
+  request: {
+    url: {{url}}/brands/specific?id=6abeb58ba2477cf37e7b4673
+    method: GET
+    mode: none
+    params:query: {
+      id: 6abeb58ba2477cf37e7b4673
+    }
+  
+    headers: {
+      "token ": {{token}}
+    }
+  }
+  
+  response: {
+    headers: {
+      x-powered-by: Express
+      access-control-allow-origin: *
+      content-type: application/json; charset=utf-8
+      content-length: 541
+      etag: W/"21d-0LPkZDf1XIFAghmU3rw6BegVvUM"
+      date: Sat, 03 Oct 2026 19:51:23 GMT
+      connection: keep-alive
+      keep-alive: timeout=5
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "message": "done",
+          "data": {
+            "logo": {
+              "fileUrl": "https://ik.imagekit.io/ososmeedo/Uploads/Categories/WyZG/SubCategories/bW68/Brands/ih1f/2026-10-01__2kHR__logo_Gmrkp8g8k.jpg",
+              "filePath": "/Uploads/Categories/WyZG/SubCategories/bW68/Brands/ih1f/2026-10-01__2kHR__logo_Gmrkp8g8k.jpg"
+            },
+            "_id": "6abeb58ba2477cf37e7b4673",
+            "name": "Nokhba Tech",
+            "slug": "nokhba-tech",
+            "customId": "ih1f",
+            "categoryId": "6a847f29dcab826cf492edfa",
+            "subCategoryId": "6a8482919daf950d1127540e",
+            "createdAt": "2026-10-01T19:33:31.473Z",
+            "updatedAt": "2026-10-01T19:33:31.473Z",
+            "__v": 0
+          }
+        }
+      '''
+    }
+  }
+}

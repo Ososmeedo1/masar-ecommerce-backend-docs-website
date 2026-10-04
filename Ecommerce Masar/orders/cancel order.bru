@@ -1,0 +1,94 @@
+meta {
+  name: cancel order
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{url}}/orders/cancel/6ac15f3533488f956288a2d2
+  body: none
+  auth: inherit
+}
+
+headers {
+  token: osama{{token}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+example {
+  name: Cancel order
+  description: '''
+    This endpoint cancels an existing order.
+        
+    It finds the order
+    It changes status to canceled
+    It returns success
+    Simple meaning: this API is used when a user cancels their order.
+  '''
+  
+  request: {
+    url: {{url}}/orders/cancel/6ac15f3533488f956288a2d2
+    method: GET
+    mode: none
+    headers: {
+      token: {{token}}
+    }
+  }
+  
+  response: {
+    headers: {
+      x-powered-by: Express
+      access-control-allow-origin: *
+      content-type: application/json; charset=utf-8
+      content-length: 607
+      etag: W/"25f-nlPd8DbcXhPdDQnVhOiX9oU//q0"
+      date: Sat, 03 Oct 2026 20:02:53 GMT
+      connection: keep-alive
+      keep-alive: timeout=5
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "message": "Order has been cancelled",
+          "data": {
+            "_id": "6ac15f3533488f956288a2d2",
+            "userId": "6a847ebadcab826cf492edee",
+            "products": [
+              {
+                "productId": "6ac11435957e9db5eb78a2b1",
+                "quantity": 4,
+                "price": 899,
+                "_id": "6ac15ec033488f956288a2b0"
+              }
+            ],
+            "fromCart": true,
+            "address": "obour",
+            "contactNumber": "01060603600",
+            "subTotal": 3596,
+            "shippingFee": 30,
+            "VAT": 30,
+            "total": 3656,
+            "estimatedDeliveryDate": "2026-10-09T21:00:00.000Z",
+            "paymentMethod": "cash",
+            "orderStatus": "cancelled",
+            "createdAt": "2026-10-03T20:01:57.835Z",
+            "updatedAt": "2026-10-03T20:02:53.017Z",
+            "cancelledBy": "6a847ebadcab826cf492edee",
+            "cancelledAt": "2026-10-03T20:02:53.016Z"
+          }
+        }
+      '''
+    }
+  }
+}

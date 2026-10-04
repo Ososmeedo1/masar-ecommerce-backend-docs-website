@@ -1,0 +1,93 @@
+meta {
+  name: update cart
+  type: http
+  seq: 3
+}
+
+patch {
+  url: {{url}}/carts/update/6ac11435957e9db5eb78a2b1
+  body: json
+  auth: inherit
+}
+
+headers {
+  token: osama{{token}}
+}
+
+body:json {
+  {
+    "quantity": 4
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+example {
+  name: Update product quantity in a cart
+  description: '''
+    This endpoint updates the cart item quantity.
+      
+    It changes the product quantity
+    It saves the updated cart
+    Simple meaning: this API is used when a user changes the number of items in the cart.
+  '''
+  
+  request: {
+    url: {{url}}/carts/update/6ac11435957e9db5eb78a2b1
+    method: PATCH
+    mode: json
+    headers: {
+      token: {{token}}
+    }
+  
+    body:json: {
+      {
+        "quantity": 4
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      x-powered-by: Express
+      access-control-allow-origin: *
+      content-type: application/json; charset=utf-8
+      content-length: 303
+      etag: W/"12f-u3vSt3sgPqnUMKwHkjhcdv/LEfs"
+      date: Sat, 03 Oct 2026 20:00:28 GMT
+      connection: keep-alive
+      keep-alive: timeout=5
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "message": "Cart has been updated",
+          "data": {
+            "_id": "6ac15ec033488f956288a2af",
+            "userId": "6a847ebadcab826cf492edee",
+            "products": [
+              {
+                "productId": "6ac11435957e9db5eb78a2b1",
+                "quantity": 4,
+                "price": 899,
+                "_id": "6ac15ec033488f956288a2b0"
+              }
+            ],
+            "createdAt": "2026-10-03T20:00:00.402Z",
+            "updatedAt": "2026-10-03T20:00:28.091Z"
+          }
+        }
+      '''
+    }
+  }
+}

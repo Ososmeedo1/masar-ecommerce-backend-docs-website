@@ -1,0 +1,72 @@
+meta {
+  name: delete account
+  type: http
+  seq: 8
+}
+
+delete {
+  url: {{url}}/users/delete
+  body: none
+  auth: inherit
+}
+
+headers {
+  token: osama{{token}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  Deletes the throwaway user from register/login throwaway. Hard delete - TEST database only.
+}
+
+example {
+  name: Deleting account
+  description: '''
+    This endpoint deletes the logged-in user account.
+      
+    It finds the user
+    It removes the account from the database
+    It returns success
+    Simple meaning: this API is used when the user deletes their account.
+  '''
+  
+  request: {
+    url: {{url}}/users/delete
+    method: DELETE
+    mode: none
+    headers: {
+      token: {{token}}
+    }
+  }
+  
+  response: {
+    headers: {
+      x-powered-by: Express
+      access-control-allow-origin: *
+      content-type: application/json; charset=utf-8
+      content-length: 56
+      etag: W/"38-jZal8Vp5uhIe3mHdmd8C/mO7CkA"
+      date: Sat, 03 Oct 2026 20:41:32 GMT
+      connection: keep-alive
+      keep-alive: timeout=5
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "message": "User account has been deleted successfully"
+        }
+      '''
+    }
+  }
+}

@@ -1,0 +1,190 @@
+meta {
+  name: list related Brands
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{url}}/brands/related?category=6a847f29dcab826cf492edfa
+  body: none
+  auth: inherit
+}
+
+params:query {
+  category: 6a847f29dcab826cf492edfa
+}
+
+headers {
+  token: osama{{token}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+example {
+  name: Get related brands for specific category , sub-category or both
+  description: '''
+    This endpoint gets all brands that belong to a specific category or sub-category.
+      
+    You can filter by category
+    You can also filter by subCategory
+    It returns the brands connected to that category or sub-category
+    In simple words: this API is used when you want to show brands that are related to a selected category or sub-category, such as “all brands under Men’s Shoes”.
+  '''
+  
+  request: {
+    url: {{url}}/brands/related?category=6a847f29dcab826cf492edfa
+    method: GET
+    mode: none
+    params:query: {
+      category: 6a847f29dcab826cf492edfa
+    }
+  
+    headers: {
+      token: {{token}}
+    }
+  }
+  
+  response: {
+    headers: {
+      x-powered-by: Express
+      access-control-allow-origin: *
+      content-type: application/json; charset=utf-8
+      content-length: 3683
+      etag: W/"e63-YGrp+QCr47SrWGRiHv/yFyCWdbo"
+      date: Sat, 03 Oct 2026 19:53:49 GMT
+      connection: keep-alive
+      keep-alive: timeout=5
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "message": "done",
+          "data": [
+            {
+              "logo": {
+                "fileUrl": "https://ik.imagekit.io/ososmeedo/Uploads/Categories/WyZG/SubCategories/bW68/Brands/ih1f/2026-10-01__2kHR__logo_Gmrkp8g8k.jpg",
+                "filePath": "/Uploads/Categories/WyZG/SubCategories/bW68/Brands/ih1f/2026-10-01__2kHR__logo_Gmrkp8g8k.jpg"
+              },
+              "_id": "6abeb58ba2477cf37e7b4673",
+              "name": "Nokhba Tech",
+              "slug": "nokhba-tech",
+              "customId": "ih1f",
+              "categoryId": {
+                "Image": {
+                  "fileUrl": "https://ik.imagekit.io/ososmeedo/Uploads/Categories/WyZG/2026-08-18__vI_M__electronics_4Opr5m-DiQ.png",
+                  "filePath": "/Uploads/Categories/WyZG/2026-08-18__vI_M__electronics_4Opr5m-DiQ.png"
+                },
+                "_id": "6a847f29dcab826cf492edfa",
+                "name": "Electronics",
+                "addedBy": "6a847ebadcab826cf492edee",
+                "customId": "WyZG",
+                "slug": "electronics",
+                "createdAt": "2026-08-18T15:50:01.170Z",
+                "updatedAt": "2026-08-18T15:50:01.170Z",
+                "__v": 0
+              },
+              "subCategoryId": "6a8482919daf950d1127540e",
+              "createdAt": "2026-10-01T19:33:31.473Z",
+              "updatedAt": "2026-10-01T19:33:31.473Z",
+              "__v": 0
+            },
+            {
+              "logo": {
+                "fileUrl": "https://ik.imagekit.io/ososmeedo/Uploads/Categories/WyZG/SubCategories/UlRF/Brands/wUmI/2026-10-01__6pZx__logo_me7PqXGV8.jpg",
+                "filePath": "/Uploads/Categories/WyZG/SubCategories/UlRF/Brands/wUmI/2026-10-01__6pZx__logo_me7PqXGV8.jpg"
+              },
+              "_id": "6abeb5d8a2477cf37e7b4679",
+              "name": "Al Ameed Computers",
+              "slug": "al-ameed-computers",
+              "customId": "wUmI",
+              "categoryId": {
+                "Image": {
+                  "fileUrl": "https://ik.imagekit.io/ososmeedo/Uploads/Categories/WyZG/2026-08-18__vI_M__electronics_4Opr5m-DiQ.png",
+                  "filePath": "/Uploads/Categories/WyZG/2026-08-18__vI_M__electronics_4Opr5m-DiQ.png"
+                },
+                "_id": "6a847f29dcab826cf492edfa",
+                "name": "Electronics",
+                "addedBy": "6a847ebadcab826cf492edee",
+                "customId": "WyZG",
+                "slug": "electronics",
+                "createdAt": "2026-08-18T15:50:01.170Z",
+                "updatedAt": "2026-08-18T15:50:01.170Z",
+                "__v": 0
+              },
+              "subCategoryId": "6a8494836fbdd1f62e37174a",
+              "createdAt": "2026-10-01T19:34:48.699Z",
+              "updatedAt": "2026-10-01T19:34:48.699Z",
+              "__v": 0
+            },
+            {
+              "logo": {
+                "fileUrl": "https://ik.imagekit.io/ososmeedo/Uploads/Categories/WyZG/SubCategories/MKT3/Brands/RF6P/2026-10-01__Ex-b__logo_srP1_9gJ-.jpg",
+                "filePath": "/Uploads/Categories/WyZG/SubCategories/MKT3/Brands/RF6P/2026-10-01__Ex-b__logo_srP1_9gJ-.jpg"
+              },
+              "_id": "6abeb60fa2477cf37e7b467f",
+              "name": "Hams",
+              "slug": "hams",
+              "customId": "RF6P",
+              "categoryId": {
+                "Image": {
+                  "fileUrl": "https://ik.imagekit.io/ososmeedo/Uploads/Categories/WyZG/2026-08-18__vI_M__electronics_4Opr5m-DiQ.png",
+                  "filePath": "/Uploads/Categories/WyZG/2026-08-18__vI_M__electronics_4Opr5m-DiQ.png"
+                },
+                "_id": "6a847f29dcab826cf492edfa",
+                "name": "Electronics",
+                "addedBy": "6a847ebadcab826cf492edee",
+                "customId": "WyZG",
+                "slug": "electronics",
+                "createdAt": "2026-08-18T15:50:01.170Z",
+                "updatedAt": "2026-08-18T15:50:01.170Z",
+                "__v": 0
+              },
+              "subCategoryId": "6a8483739daf950d11275412",
+              "createdAt": "2026-10-01T19:35:43.262Z",
+              "updatedAt": "2026-10-01T19:35:43.262Z",
+              "__v": 0
+            },
+            {
+              "logo": {
+                "fileUrl": "https://ik.imagekit.io/ososmeedo/Uploads/Categories/WyZG/SubCategories/3mQX/Brands/GkVN/2026-10-01__9pl2__logo_n317IeXbp.jpg",
+                "filePath": "/Uploads/Categories/WyZG/SubCategories/3mQX/Brands/GkVN/2026-10-01__9pl2__logo_n317IeXbp.jpg"
+              },
+              "_id": "6abeb630a2477cf37e7b4685",
+              "name": "Daqeq Smart",
+              "slug": "daqeq-smart",
+              "customId": "GkVN",
+              "categoryId": {
+                "Image": {
+                  "fileUrl": "https://ik.imagekit.io/ososmeedo/Uploads/Categories/WyZG/2026-08-18__vI_M__electronics_4Opr5m-DiQ.png",
+                  "filePath": "/Uploads/Categories/WyZG/2026-08-18__vI_M__electronics_4Opr5m-DiQ.png"
+                },
+                "_id": "6a847f29dcab826cf492edfa",
+                "name": "Electronics",
+                "addedBy": "6a847ebadcab826cf492edee",
+                "customId": "WyZG",
+                "slug": "electronics",
+                "createdAt": "2026-08-18T15:50:01.170Z",
+                "updatedAt": "2026-08-18T15:50:01.170Z",
+                "__v": 0
+              },
+              "subCategoryId": "6a8483929daf950d11275416",
+              "createdAt": "2026-10-01T19:36:16.266Z",
+              "updatedAt": "2026-10-01T19:36:16.266Z",
+              "__v": 0
+            }
+          ]
+        }
+      '''
+    }
+  }
+}

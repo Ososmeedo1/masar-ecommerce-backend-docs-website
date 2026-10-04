@@ -1,0 +1,98 @@
+meta {
+  name: Get user profile
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{url}}/users/profile
+  body: none
+  auth: inherit
+}
+
+headers {
+  token: osama{{token}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+example {
+  name: Get user profile
+  description: '''
+    This endpoint returns the current user’s profile.
+      
+    It gets the user information
+    It also gets the default address
+    It hides the password in the response
+    Simple meaning: this API is used to fetch the logged-in user data.
+  '''
+  
+  request: {
+    url: {{url}}/users/profile
+    method: GET
+    mode: none
+    headers: {
+      token: {{token}}
+    }
+  }
+  
+  response: {
+    headers: {
+      x-powered-by: Express
+      access-control-allow-origin: *
+      content-type: application/json; charset=utf-8
+      content-length: 637
+      etag: W/"27d-tfYd8P8O4XyhMt2GO8gLi2jRRGo"
+      date: Sat, 03 Oct 2026 19:55:59 GMT
+      connection: keep-alive
+      keep-alive: timeout=5
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "message": "done",
+          "data": {
+            "user": {
+              "_id": "6a847ebadcab826cf492edee",
+              "username": "username",
+              "email": "username@gmail.com",
+              "userType": "Admin",
+              "age": 30,
+              "gender": "male",
+              "phone": "01000000000",
+              "isEmailVerified": false,
+              "isMarkedAsDeleted": false,
+              "createdAt": "2026-08-18T15:48:10.106Z",
+              "updatedAt": "2026-10-03T19:16:31.983Z"
+            },
+            "address": {
+              "_id": "6a847ebadcab826cf492edef",
+              "userId": "6a847ebadcab826cf492edee",
+              "country": "Egypt",
+              "city": "Cairo",
+              "postalCode": 848481,
+              "buildingNumber": "3",
+              "floorNumber": 5,
+              "addressLabel": "home",
+              "isDefault": false,
+              "isMarkedAsDeleted": false,
+              "createdAt": "2026-08-18T15:48:10.344Z",
+              "updatedAt": "2026-10-03T19:16:34.344Z",
+              "__v": 0
+            }
+          }
+        }
+      '''
+    }
+  }
+}

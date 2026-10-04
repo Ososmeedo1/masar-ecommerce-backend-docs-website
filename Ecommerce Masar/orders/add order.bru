@@ -1,0 +1,167 @@
+meta {
+  name: add order
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{url}}/orders/add
+  body: json
+  auth: inherit
+}
+
+headers {
+  token: osama{{token}}
+}
+
+body:json {
+  {
+    "paymentMethod": "cash",
+    "address": "obour",
+    "contactNumber": "01060603600",
+    "shippingFee": 30,
+    "VAT": 30
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+example {
+  name: Add order
+  description: '''
+    This endpoint creates a new order.
+        
+    It takes order details
+    It validates the items and user
+    It saves the new order
+    Simple meaning: this API is used when a customer places an order.
+  '''
+  
+  request: {
+    url: {{url}}/orders/add
+    method: POST
+    mode: json
+    headers: {
+      token: {{token}}
+    }
+  
+    body:json: {
+      {
+        "paymentMethod": "cash",
+        "address": "obour",
+        "contactNumber": "01060603600",
+        "shippingFee": 30,
+        "VAT": 30
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      x-powered-by: Express
+      access-control-allow-origin: *
+      content-type: application/json; charset=utf-8
+      content-length: 2208
+      etag: W/"8a0-LKA+mVtNYJEAtobDIsovwGgaq24"
+      date: Sat, 03 Oct 2026 20:01:58 GMT
+      connection: keep-alive
+      keep-alive: timeout=5
+    }
+  
+    status: {
+      code: 201
+      text: Created
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "message": "Order has been added",
+          "data": {
+            "userId": "6a847ebadcab826cf492edee",
+            "products": [
+              {
+                "productId": {
+                  "appliedDiscount": {
+                    "amount": 0,
+                    "type": "Percentage"
+                  },
+                  "Images": {
+                    "URLs": [
+                      {
+                        "fileUrl": "https://ik.imagekit.io/ososmeedo/Uploads/Categories/WyZG/SubCategories/bW68/Brands/ih1f/Products/xtyp/2026-10-03__9X7F1_aUp7w6CQZ.jpg",
+                        "filePath": "/Uploads/Categories/WyZG/SubCategories/bW68/Brands/ih1f/Products/xtyp/2026-10-03__9X7F1_aUp7w6CQZ.jpg",
+                        "_id": "6ac11435957e9db5eb78a2b2"
+                      },
+                      {
+                        "fileUrl": "https://ik.imagekit.io/ososmeedo/Uploads/Categories/WyZG/SubCategories/bW68/Brands/ih1f/Products/xtyp/2026-10-03__nCpa2_FCf_dPXqv.jpg",
+                        "filePath": "/Uploads/Categories/WyZG/SubCategories/bW68/Brands/ih1f/Products/xtyp/2026-10-03__nCpa2_FCf_dPXqv.jpg",
+                        "_id": "6ac11435957e9db5eb78a2b3"
+                      },
+                      {
+                        "fileUrl": "https://ik.imagekit.io/ososmeedo/Uploads/Categories/WyZG/SubCategories/bW68/Brands/ih1f/Products/xtyp/2026-10-03__-8ar3_Lx6l2DHU7.jpg",
+                        "filePath": "/Uploads/Categories/WyZG/SubCategories/bW68/Brands/ih1f/Products/xtyp/2026-10-03__-8ar3_Lx6l2DHU7.jpg",
+                        "_id": "6ac11435957e9db5eb78a2b4"
+                      }
+                    ],
+                    "customId": "xtyp"
+                  },
+                  "_id": "6ac11435957e9db5eb78a2b1",
+                  "title": "Hatif Nokhba 5G",
+                  "overview": "Flagship 5G smartphone with a stunning AMOLED display, pro-grade camera, full Arabic keyboard and interface support, and all-day battery.",
+                  "specs": {
+                    "display": "6.7 inch AMOLED 120Hz",
+                    "processor": "Octa-core 3.0GHz",
+                    "ram": "12GB",
+                    "storage": "256GB",
+                    "camera": "108MP + 12MP + 8MP",
+                    "battery": "5000mAh",
+                    "os": "Android 15",
+                    "languages": [
+                      "Arabic",
+                      "English"
+                    ],
+                    "colors": [
+                      "Midnight Blue",
+                      "Titanium Silver"
+                    ]
+                  },
+                  "price": 899,
+                  "stock": 60,
+                  "rating": 0,
+                  "categoryId": "6a847f29dcab826cf492edfa",
+                  "subCategoryId": "6a8482919daf950d1127540e",
+                  "brandId": "6abeb58ba2477cf37e7b4673",
+                  "slug": "hatif_nokhba_5g",
+                  "appliedPrice": 899,
+                  "createdAt": "2026-10-03T14:41:57.656Z",
+                  "updatedAt": "2026-10-03T14:41:57.656Z"
+                },
+                "quantity": 4,
+                "price": 899,
+                "_id": "6ac15ec033488f956288a2b0"
+              }
+            ],
+            "fromCart": true,
+            "address": "obour",
+            "contactNumber": "01060603600",
+            "subTotal": 3596,
+            "shippingFee": 30,
+            "VAT": 30,
+            "total": 3656,
+            "estimatedDeliveryDate": "2026-10-09T21:00:00.000Z",
+            "paymentMethod": "cash",
+            "orderStatus": "placed",
+            "_id": "6ac15f3533488f956288a2d2",
+            "createdAt": "2026-10-03T20:01:57.835Z",
+            "updatedAt": "2026-10-03T20:01:57.835Z"
+          }
+        }
+      '''
+    }
+  }
+}

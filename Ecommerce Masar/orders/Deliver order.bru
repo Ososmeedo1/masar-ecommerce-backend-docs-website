@@ -1,0 +1,92 @@
+meta {
+  name: Deliver order
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{url}}/orders/deliver/6ac15f8633488f956288a2ef
+  body: none
+  auth: inherit
+}
+
+headers {
+  token: osama{{token}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+example {
+  name: Deliver order
+  description: '''
+    This endpoint marks an order as delivered.
+      
+    It finds the order
+    It updates the delivery status
+    Simple meaning: this API is used when the order is delivered to the customer.
+  '''
+  
+  request: {
+    url: {{url}}/orders/deliver/6ac15f8633488f956288a2ef
+    method: GET
+    mode: none
+    headers: {
+      token: {{token}}
+    }
+  }
+  
+  response: {
+    headers: {
+      x-powered-by: Express
+      access-control-allow-origin: *
+      content-type: application/json; charset=utf-8
+      content-length: 564
+      etag: W/"234-8sRhrmpKWh3wtXD1H7HitWxGZCY"
+      date: Sat, 03 Oct 2026 20:04:13 GMT
+      connection: keep-alive
+      keep-alive: timeout=5
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "message": "Order has been delivered",
+          "data": {
+            "_id": "6ac15f8633488f956288a2ef",
+            "userId": "6a847ebadcab826cf492edee",
+            "products": [
+              {
+                "productId": "6ac11435957e9db5eb78a2b1",
+                "quantity": 1,
+                "price": 899,
+                "_id": "6ac15f8233488f956288a2e6"
+              }
+            ],
+            "fromCart": true,
+            "address": "obour",
+            "contactNumber": "01060603600",
+            "subTotal": 899,
+            "shippingFee": 30,
+            "VAT": 30,
+            "total": 959,
+            "estimatedDeliveryDate": "2026-10-09T21:00:00.000Z",
+            "paymentMethod": "cash",
+            "orderStatus": "delivered",
+            "createdAt": "2026-10-03T20:03:18.433Z",
+            "updatedAt": "2026-10-03T20:04:13.459Z",
+            "deliveredAt": "2026-10-03T20:04:13.458Z"
+          }
+        }
+      '''
+    }
+  }
+}

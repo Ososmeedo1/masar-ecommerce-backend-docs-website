@@ -1,0 +1,124 @@
+meta {
+  name: Register
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{url}}/users/register
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "username": "ormeedo",
+    "email": "username@gmail.com",
+    "password": "Example",
+    "age": 23,
+    "phone": "01000000000",
+    "gender": "male",
+    "country": "Egypt",
+    "city": "Cairo",
+    "postalCode": "848481",
+    "buildingNumber": "3",
+    "floorNumber": 5,
+    "addressLabel": "home"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+example {
+  name: Register new user
+  description: '''
+    This endpoint creates a new user account.
+    
+    It receives username, email, password, and address details
+    It validates the data
+    It creates the user and default address
+    Simple meaning: this API is used when a new user signs up.
+  '''
+  
+  request: {
+    url: {{url}}/users/register
+    method: POST
+    mode: json
+    body:json: {
+      {
+        "username": "ormeedo",
+        "email": "username@gmail.com",
+        "password": "Example",
+        "age": 23,
+        "phone": "01000000000",
+        "gender": "male",
+        "country": "Egypt",
+        "city": "Cairo",
+        "postalCode": "848481",
+        "buildingNumber": "3",
+        "floorNumber": 5,
+        "addressLabel": "home"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      x-powered-by: Express
+      access-control-allow-origin: *
+      content-type: application/json; charset=utf-8
+      content-length: 685
+      etag: W/"2ad-JhaXlXFtRAw6ip9GK/SX0FC23X4"
+      date: Sat, 03 Oct 2026 18:48:46 GMT
+      connection: keep-alive
+      keep-alive: timeout=5
+    }
+  
+    status: {
+      code: 201
+      text: Created
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "message": "registeration has been done successfully",
+          "data": {
+            "userResponse": {
+              "username": "ososmeedo",
+              "email": "ososmeedo@gmail.com",
+              "userType": "Buyer",
+              "age": 23,
+              "gender": "male",
+              "phone": "01050505305",
+              "isEmailVerified": false,
+              "isMarkedAsDeleted": false,
+              "_id": "6ac14e0ec9b84fa227135708",
+              "createdAt": "2026-10-03T18:48:46.028Z",
+              "updatedAt": "2026-10-03T18:48:46.028Z"
+            },
+            "newAddress": {
+              "userId": "6ac14e0ec9b84fa227135708",
+              "country": "Egypt",
+              "city": "Cairo",
+              "postalCode": 848481,
+              "buildingNumber": "3",
+              "floorNumber": 5,
+              "addressLabel": "home",
+              "isDefault": true,
+              "isMarkedAsDeleted": false,
+              "_id": "6ac14e0ec9b84fa227135709",
+              "createdAt": "2026-10-03T18:48:46.202Z",
+              "updatedAt": "2026-10-03T18:48:46.202Z",
+              "__v": 0
+            }
+          }
+        }
+      '''
+    }
+  }
+}

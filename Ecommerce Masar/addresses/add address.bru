@@ -1,0 +1,107 @@
+meta {
+  name: add address
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{url}}/addresses/add
+  body: json
+  auth: inherit
+}
+
+headers {
+  token: osama{{token}}
+}
+
+body:json {
+  {
+    "country": "Egypt",
+    "city": "Giza",
+    "postalCode": 656565,
+    "buildingNumber": "51",
+    "floorNumber": 2,
+    "addressLabel": "Home",
+    "setAsDefault": true
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+example {
+  name: Adding address
+  description: '''
+    This endpoint adds a new address for the user.
+      
+    It receives address details
+    It saves the new address
+    It can set it as default
+    Simple meaning: this API is used when a user adds a shipping or billing address.
+  '''
+  
+  request: {
+    url: {{url}}/addresses/add
+    method: POST
+    mode: json
+    headers: {
+      token: {{token}}
+    }
+  
+    body:json: {
+      {
+        "country": "Egypt",
+        "city": "Giza",
+        "postalCode": 656565,
+        "buildingNumber": "51",
+        "floorNumber": 2,
+        "addressLabel": "Home",
+        "setAsDefault": true
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      x-powered-by: Express
+      access-control-allow-origin: *
+      content-type: application/json; charset=utf-8
+      content-length: 350
+      etag: W/"15e-VmW7hmmXmMOTGn9j0auzhph7lLo"
+      date: Sat, 03 Oct 2026 19:57:24 GMT
+      connection: keep-alive
+      keep-alive: timeout=5
+    }
+  
+    status: {
+      code: 201
+      text: Created
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+          "message": "Address was added",
+          "data": {
+            "userId": "6a847ebadcab826cf492edee",
+            "country": "Egypt",
+            "city": "Giza",
+            "postalCode": 656565,
+            "buildingNumber": "51",
+            "floorNumber": 2,
+            "addressLabel": "Home",
+            "isDefault": true,
+            "isMarkedAsDeleted": false,
+            "_id": "6ac15e2433488f956288a28e",
+            "createdAt": "2026-10-03T19:57:24.663Z",
+            "updatedAt": "2026-10-03T19:57:24.663Z",
+            "__v": 0
+          }
+        }
+      '''
+    }
+  }
+}
