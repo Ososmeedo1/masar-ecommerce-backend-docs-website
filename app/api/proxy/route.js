@@ -87,18 +87,27 @@ export async function POST(req) {
     if (HOP_BY_HOP.has(k) || k.startsWith("x-forwarded") || k.startsWith("cf-")) continue;
     outHeaders[h.name] = String(h.value ?? "");
   }
+  // Bruno auto-sends `Content-Type: application/json` for JSON bodies, but the
+  // playground form only forwards user-visible headers (usually just `token`).
+  // Node fetch then defaults string bodies to `text/plain;charset=UTF-8`,
+  // which the backend Joi validation rejects. Default to JSON like Bruno.
+  const upperMethod = String(method || "GET").toUpperCase();
+  const hasBody = body != null && String(body).length > 0 && !["GET", "HEAD"].includes(upperMethod);
+  if (hasBody) {
+    const hasContentType = Object.keys(outHeaders).some(
+      (k) => k.toLowerCase() === "content-type"
+    );
+    if (!hasContentType) outHeaders["Content-Type"] = "application/json";
+  }
 
   const ctrl = new AbortController();
   const t = setTimeout(() => ctrl.abort(), TIMEOUT_MS);
   const t0 = Date.now();
   try {
     const upstream = await fetch(target.toString(), {
-      method: String(method || "GET").toUpperCase(),
+      method: upperMethod,
       headers: outHeaders,
-      body:
-        body != null && !["GET", "HEAD"].includes(String(method).toUpperCase())
-          ? String(body)
-          : undefined,
+      body: hasBody ? String(body) : undefined,
       signal: ctrl.signal,
       redirect: "follow",
     });
