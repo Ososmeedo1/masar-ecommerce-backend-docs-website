@@ -10,10 +10,6 @@ get {
   auth: inherit
 }
 
-headers {
-  token: osama{{token}}
-}
-
 settings {
   encodeUrl: true
   timeout: 0
@@ -23,15 +19,15 @@ example {
   name: Get all products
   description: '''
     his endpoint gets a list of all products.
-      
+        
     It uses ApiFeatures, so it supports:
-      
+        
     pagination
     filtering
     searching
     sorting
     Examples:
-      
+        
     GET /products?page=1&limit=10 → show page 1 with 10 products
     GET /products?search=laptop → search product names
     GET /products?categoryId=123 → show products in a category

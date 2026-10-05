@@ -10,10 +10,6 @@ get {
   auth: inherit
 }
 
-headers {
-  token: osama{{token}}
-}
-
 settings {
   encodeUrl: true
   timeout: 0
@@ -23,27 +19,27 @@ example {
   name: Get all categories response
   description: '''
     This endpoint is used to get a list of all categories.
-      
+        
     It uses ApiFeatures, so it supports:
-      
+        
     pagination
     filtering
     searching
     sorting
     This means you can:
-      
+        
     show categories in pages
     find a specific category by name or condition
     search category names
     sort the results by a field
     Examples:
-      
+        
     GET /categories?page=1&limit=10 → first page, 10 categories
     GET /categories?search=mobile → search by category name
     GET /categories?sort=-name → sort from Z to A
     GET /categories?name=Electronics → show only that category
     The response includes:
-      
+        
     total: total number of categories
     page: current page
     data: category list

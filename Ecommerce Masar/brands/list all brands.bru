@@ -10,10 +10,6 @@ get {
   auth: inherit
 }
 
-headers {
-  token: osama{{token}}
-}
-
 settings {
   encodeUrl: true
   timeout: 0
@@ -23,27 +19,27 @@ example {
   name: Get all brands
   description: '''
     This endpoint is used to get a list of all brands.
-      
+        
     It gives you extra features through ApiFeatures, so you can:
-      
+        
     paginate the results
     filter brands by conditions
     search brands by keyword
     sort brands by name or other fields
     In the easiest way:
-      
+        
     pagination() → split results into pages
     filter() → show only matching brands
     search() → find brands by text
     sort() → order the list
     Example requests:
-      
+        
     GET /brands?page=1&limit=10 → first page, 10 brands
     GET /brands?search=apple → find brands with “apple”
     GET /brands?sort=-name → sort from Z to A
     GET /brands?name=Apple → show only Apple brand
     The response includes:
-      
+        
     total: total number of matching brands
     page: current page
     data: the list of brands

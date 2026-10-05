@@ -67,7 +67,7 @@
     "name": "list all brands",
     "method": "GET",
     "path": "/brands/",
-    "description": "This endpoint is used to get a list of all brands.\n      \n    It gives you extra features through ApiFeatures, so you can:\n      \n    paginate the results\n    filter brands by conditions\n    search brands by keyword\n    sort brands by name or other fields\n    In the easiest way:\n      \n    paginatio"
+    "description": "This endpoint is used to get a list of all brands.\n        \n    It gives you extra features through ApiFeatures, so you can:\n        \n    paginate the results\n    filter brands by conditions\n    search brands by keyword\n    sort brands by name or other fields\n    In the easiest way:\n        \n    pag"
   },
   {
     "id": "carts/add-to-cart",
@@ -127,7 +127,7 @@
     "name": "list categories",
     "method": "GET",
     "path": "/categories/list",
-    "description": "This endpoint is used to get a list of all categories.\n      \n    It uses ApiFeatures, so it supports:\n      \n    pagination\n    filtering\n    searching\n    sorting\n    This means you can:\n      \n    show categories in pages\n    find a specific category by name or condition\n    search category names"
+    "description": "This endpoint is used to get a list of all categories.\n        \n    It uses ApiFeatures, so it supports:\n        \n    pagination\n    filtering\n    searching\n    sorting\n    This means you can:\n        \n    show categories in pages\n    find a specific category by name or condition\n    search category"
   },
   {
     "id": "coupons/get-coupons",
@@ -207,7 +207,7 @@
     "name": "list all products",
     "method": "GET",
     "path": "/products/list",
-    "description": "his endpoint gets a list of all products.\n      \n    It uses ApiFeatures, so it supports:\n      \n    pagination\n    filtering\n    searching\n    sorting\n    Examples:\n      \n    GET /products?page=1&limit=10 → show page 1 with 10 products\n    GET /products?search=laptop → search product names\n    GET"
+    "description": "his endpoint gets a list of all products.\n        \n    It uses ApiFeatures, so it supports:\n        \n    pagination\n    filtering\n    searching\n    sorting\n    Examples:\n        \n    GET /products?page=1&limit=10 → show page 1 with 10 products\n    GET /products?search=laptop → search product names\n "
   },
   {
     "id": "products/get-product-by-id",
@@ -257,7 +257,7 @@
     "name": "List sub categories",
     "method": "GET",
     "path": "/subcategories",
-    "description": "This endpoint is used to get a list of all sub-categories.\n      \n    It also uses ApiFeatures, so it supports:\n      \n    pagination\n    filtering\n    searching\n    sorting\n    Examples:\n      \n    GET /sub-categories?page=1&limit=10 → page 1, 10 sub-categories\n    GET /sub-categories?categoryId=12"
+    "description": "This endpoint is used to get a list of all sub-categories.\n        \n    It also uses ApiFeatures, so it supports:\n        \n    pagination\n    filtering\n    searching\n    sorting\n    Examples:\n        \n    GET /sub-categories?page=1&limit=10 → page 1, 10 sub-categories\n    GET /sub-categories?categor"
   },
   {
     "id": "users/register",
@@ -267,7 +267,7 @@
     "name": "Register",
     "method": "POST",
     "path": "/users/register",
-    "description": "This endpoint creates a new user account.\n    \n    It receives username, email, password, and address details\n    It validates the data\n    It creates the user and default address\n    Simple meaning: this API is used when a new user signs up."
+    "description": "This endpoint creates a new user account.\r\n    \r\n    It receives username, email, password, and address details\r\n    It validates the data\r\n    It creates the user and default address\r\n    Simple meaning: this API is used when a new user signs up."
   },
   {
     "id": "users/update-account",

@@ -10,10 +10,6 @@ get {
   auth: inherit
 }
 
-headers {
-  token: osama{{token}}
-}
-
 settings {
   encodeUrl: true
   timeout: 0
@@ -23,21 +19,21 @@ example {
   name: Get all sub-categories
   description: '''
     This endpoint is used to get a list of all sub-categories.
-      
+        
     It also uses ApiFeatures, so it supports:
-      
+        
     pagination
     filtering
     searching
     sorting
     Examples:
-      
+        
     GET /sub-categories?page=1&limit=10 → page 1, 10 sub-categories
     GET /sub-categories?categoryId=123 → show sub-categories under a specific category
     GET /sub-categories?search=shoes → search sub-category names
     GET /sub-categories?sort=name → sort from A to Z
     The response includes:
-      
+        
     total: total number of matching sub-categories
     page: current page
     data: list of sub-categories
